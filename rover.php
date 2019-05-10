@@ -17,10 +17,9 @@ class Rover {
     }
 
     public function setRover($xPosition, $yPosition, $direction) {
-        //validation: before updating rover coordinates, make sure that parameters are valid values
         $this->xPosition = $xPosition;
         $this->yPosition = $yPosition;
-            $this->direction = $direction;
+        $this->direction = $direction;
     }
 
 }

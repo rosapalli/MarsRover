@@ -1,5 +1,27 @@
 stuff to consider:
+- singleton pattern for factory 
 - singleton pattern for plateau 
 - how to input the instructions into the application? 
     write existing text file or upload new text file? 
 - what code is needed to execute the application? 
+
+should movement become an abstract class with different sub-classes for each cardinal point? 
+
+abstract class Movement {
+abstract function turnLeft()
+abstract function turnRight()
+abstract function moveForward()
+}
+
+class North extends Movement {
+turnLeft()
+turnRigth()
+moveForward()
+
+then create a factory that initiates the right type of movement implementation based on the attributes of the rover
+
+    /* read input text file line by line
+     * if the input line is two integers = new Plateau
+     * if the input line is two integers and one letter = new Rover
+     * if the input line is anything else = new Movement
+     */

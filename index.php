@@ -3,32 +3,15 @@ spl_autoload_register(function ($class) {
     include_once "$class.php";
 });
 
-$plateau = new Plateau (5,5);
-$rover = new Rover(3, 3, "E");
+$factory = new Factory(); 
 
-$movement = new Movement();
+$plateau = $factory->createPlateau("5 5");
+$rover = $factory->createRover("1 2 N");
+$rover2 = $factory->createRover("3 3 E");
 
-echo $rover->getRover();echo PHP_EOL;
+$factory->createMovement($rover, $plateau, "LMLMLMLMM"); 
+$factory->createMovement($rover2, $plateau, "MMRMMRMRRM");
 
-$movement->moveForward($rover, $plateau);
-echo $rover->getRover();echo PHP_EOL;
-
-$movement->moveForward($rover, $plateau);
-echo $rover->getRover();echo PHP_EOL;
-
-$movement->turnLeft($rover);
-echo $rover->getRover() . PHP_EOL;
-
-$movement->moveForward($rover, $plateau);
-echo $rover->getRover();echo PHP_EOL;
-
-$movement->moveForward($rover, $plateau);
-echo $rover->getRover();echo PHP_EOL;
-
-$movement->moveForward($rover, $plateau);
-echo $rover->getRover();echo PHP_EOL;
-
-
-
-$movement->moveForward($rover, $plateau);
-echo $rover->getRover();echo PHP_EOL;
+echo $rover->getRover();
+echo PHP_EOL;
+echo $rover2->getRover();

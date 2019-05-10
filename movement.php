@@ -2,8 +2,6 @@
 
 class Movement {
 
-    public function __construct() {}  
-
     public function turnLeft($rover) {
         $getRover = $rover->getRover();
         $coordinates= explode(" ", $getRover);

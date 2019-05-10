@@ -1,27 +1,31 @@
 <?php
 
 class Factory {
-    /* read input text file line by line
-     * if the input line is two integers = new Plateau
-     * if the input line is two integers and one letter = new Rover
-     * if the input line is anything else = new Movement
-     */
 
     public function createPlateau($input) {
-        $coordinates[] = explode(" ", $input);
+        $coordinates = explode(" ", $input);
         return new Plateau($coordinates[0], $coordinates[1]);
     }
 
     public function createRover($input) {
-        $coordinates[] = explode(" ", $input);
+        $coordinates = explode(" ", $input);
         return new Rover($coordinates[0], $coordinates[1], $coordinates[2]);
     }
 
-    public function createMovement($rover, $input) {
-        //the movement command is passed as a string
-        //the movement command string is transformed into an array
-        //for each element of the command array call the right method depending if 
-        //it's a L, R or M
+    public function createMovement($rover, $plateau, $input) {
+        $commands = str_split($input);
+        foreach ($commands as $command) 
+        {
+            if ($command === "L") {
+                $movement = new Movement();
+                $movement->turnLeft($rover);
+            } else if ($command === "R") {
+                $movement = new Movement();
+                $movement->turnRight($rover);
+            } else {
+                $movement = new Movement();
+                $movement->moveForward($rover, $plateau);
+            }
+        }
     }
-
 }
