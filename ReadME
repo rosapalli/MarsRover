@@ -1,0 +1,5 @@
+stuff to consider:
+- singleton pattern for plateau 
+- how to input the instructions into the application? 
+    write existing text file or upload new text file? 
+- what code is needed to execute the application? 

@@ -1,23 +1,17 @@
 <?php
 
 class Plateau {
-
+    
     private $x;
     private $y;
 
-    public function construct_($x, $y) {
+    public function __construct($x, $y) {
         $this->x = $x;
         $this->y = $y;
     }
 
-    public function getPlateauDimensions() {
+    public function getPlateau() {
         return [$this->x, $this->y];
     }
-
-   public function setPlateau($input) {
-       $coordinates[] = explode(" ", $input);
-       $plateau = new Plateau($coordinates[0], $coordinates[1]);
-       return $plateau;
-   }
 }
 

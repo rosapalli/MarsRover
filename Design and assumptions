@@ -1,0 +1,26 @@
+DESIGN PRINCIPLES
+- OOP 
+- Simplicity
+- Testable code
+
+ARCHITECTURE
+three main classes:
+- plateau: has set dimensions and passes these as an array
+- rover: has set position and passes these as a string
+- movement: changes the coordinates and direction of the rover in relationship to the dimensions of the plateau
+supported by:
+- factory: instantiates any of the classes above depending on the input received
+
+ASSUMPTIONS
+- the plateau has set dimensions
+- there can only be one plateau 
+- more than one rover can be on the same coordinates at the same time
+- several movement instructions can be processed in one go
+- the direction in which a rover is facing will affect their movement
+- the rover's movement is limited within the plateau 
+- movement instructions can be different lengths 
+- movement instructions will never contain an integer
+- rover coordinates are always two integers and one letter
+- plateau settings are always two integers
+- the input is always passed in the correct format 
+- the x and y coordinates can never be less than 0
