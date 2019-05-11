@@ -1,6 +1,16 @@
 <?php
 
 class Factory {
+    
+     private static $instance = NULL;
+
+    //Singleton Design Pattern
+    public static function getInstance() {
+      if (!isset(self::$instance)) {
+        self::$instance = new Factory();
+      }
+      return self::$instance;
+    }
 
     public function createPlateau($input) {
         $coordinates = explode(" ", $input);

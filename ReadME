@@ -19,9 +19,3 @@ turnRigth()
 moveForward()
 
 then create a factory that initiates the right type of movement implementation based on the attributes of the rover
-
-    /* read input text file line by line
-     * if the input line is two integers = new Plateau
-     * if the input line is two integers and one letter = new Rover
-     * if the input line is anything else = new Movement
-     */
