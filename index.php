@@ -4,49 +4,35 @@ spl_autoload_register(function ($class) {
     include_once "$class.php";
 });
 
-$string = "1 2 N";
-$coordinates = explode(" ", $string);
+$file = file('input.txt');
+$factory = New Factory();
 
-var_dump($coordinates);
+foreach ($file as $input) {
+    if (preg_match("/[0-9]\s[0-9]\s[A-Z]/", $input)) {
+        if (isset($rover)) {
+            $rover2 = $factory->createRover($input);
+        } else if (isset($rover2)) {
+            $rover3 = $factory->createRover($input);
+        } else {
+            $rover = $factory->createRover($input);
+        }
+    } else if (preg_match("/[0-9]\s[0-9]/", $input)) {
+        if (isset($plateau)) {
+            throw new \BadMethodCallException('Plateau dimensions already defined');
+        }
+        $plateau = $factory->createPlateau($input);
+    } else {
+        if (isset($commands)) {
+            $commands2 = $factory->createCommands($input);
+        } else if (isset($rover2)) {
+            $commands3 = $factory->createCommands($input);
+        } else {
+            $commands = $factory->createCommands($input);
+        }
+    }
+}
 
-$rover = new Rover($string);
+$factory->createMovement($rover, $plateau, $commands);
+$factory->createMovement($rover2, $plateau, $commands2);
 
-var_dump($rover);
-
-
-
-//
-//$file = file('input.txt');
-//
-//foreach ($file as $input) {
-//    if (preg_match("/[0-9]\s[0-9]\s[A-Z]/", $input)) {
-//        $factory = New Factory();
-//        if (isset($rover)) {
-//            $rover2 = $factory->createRover($input);
-//        } else if (isset($rover2)) {
-//            $rover3 = $factory->createRover($input);
-//        } else {
-//            $rover = $factory->createRover($input);
-//        }
-//    } else if (preg_match("/[0-9]\s[0-9]/", $input)) {
-//        $factory = New Factory();
-//        if (isset($plateau)) {
-//            echo "Plateau dimensions have already been defined.";
-//        } else {
-//            $plateau = $factory->createPlateau($input);
-//        }
-//    }
-//}
-
-//
-//$plateau = $factory->createPlateau("5 5");
-//$rover = $factory->createRover("1 2 N");
-$createMovement = $factory->createMovement($rover, $plateau, "LMLMLMLMM");
-
-//$rover2 = $factory->createRover("3 3 E");
-//
-//$factory->createMovement($rover2, $plateau, "MMRMMRMRRM");
-
-//    echo $rover->getRover();
-//    echo $rover2->getRover();
-    
+echo $rover->getRover() . PHP_EOL . $rover2->getRover();

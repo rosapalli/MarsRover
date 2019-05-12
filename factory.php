@@ -1,16 +1,15 @@
 <?php
-namespace MarsRover;
 
 class Factory {
-    
-     private static $instance = NULL;
+
+    private static $instance = NULL;
 
     //Singleton Design Pattern
     public static function getInstance() {
-      if (!isset(self::$instance)) {
-        self::$instance = new Factory();
-      }
-      return self::$instance;
+        if (!isset(self::$instance)) {
+            self::$instance = new Factory();
+        }
+        return self::$instance;
     }
 
     public function createPlateau($input) {
@@ -18,13 +17,15 @@ class Factory {
     }
 
     public function createRover($input) {
-        return new Rover($input);
+            return new Rover($input);
     }
 
-    public function createMovement($rover, $plateau, $input) {
-        $commands = str_split($input);
-        foreach ($commands as $command) 
-        {
+    public function createCommands($input) {
+            return str_split($input);
+    }
+
+    public function createMovement($rover, $plateau, $commands) {
+        foreach ($commands as $command) {
             if ($command === "L") {
                 $movement = new Movement();
                 $movement->turnLeft($rover);

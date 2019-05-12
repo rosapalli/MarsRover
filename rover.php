@@ -1,6 +1,4 @@
 <?php
-namespace MarsRover;
-
 class Rover {
 
     private $xPosition;

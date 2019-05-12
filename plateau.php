@@ -1,7 +1,4 @@
 <?php
-
-namespace MarsRover;
-
 class Plateau {
 
     private $x;

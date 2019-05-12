@@ -10,7 +10,6 @@ three main classes:
 - movement: changes the coordinates and direction of the rover in relationship to the dimensions of the plateau
 supported by:
 - factory: instantiates any of the classes as required
-- fileReader: reads the input line by line and instructs the factory to instantiate classes
 
 ASSUMPTIONS
 - the plateau has set dimensions

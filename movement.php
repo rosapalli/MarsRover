@@ -1,6 +1,4 @@
 <?php
-namespace MarsRover;
-
 class Movement {
 
     public function turnLeft($rover) {
