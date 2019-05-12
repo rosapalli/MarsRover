@@ -13,8 +13,7 @@ class Factory {
     }
 
     public function createPlateau($input) {
-        $coordinates = explode(" ", $input);
-        return new Plateau($coordinates[0], $coordinates[1]);
+        return new Plateau($input);
     }
 
     public function createRover($input) {
