@@ -1,4 +1,5 @@
 <?php
+namespace MarsRover;
 
 class Factory {
     

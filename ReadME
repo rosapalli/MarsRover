@@ -1,13 +1,7 @@
 stuff to consider:
-- singleton pattern for factory 
-- singleton pattern for plateau 
 - how to input the instructions into the application? 
     write existing text file or upload new text file? 
 - what code is needed to execute the application? 
-- plateau coordinates can't be negative 
-
-LOOK AT HOW THE MOCK WAS BUILT TO REVIEW HOW METHODS HAVE BEEN BUILT - LOOK AT SHORT METHODS BEING USED WITHIN 
-OTHER METHODS V. LONG-ASS METHODS OR WEIRD CLASSES
 
 should movement become an abstract class with different sub-classes for each cardinal point? 
 
