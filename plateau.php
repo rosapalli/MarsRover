@@ -1,4 +1,5 @@
 <?php
+
 namespace MarsRover;
 
 class Plateau {
@@ -12,6 +13,9 @@ class Plateau {
 
     public function setPlateau($input) {
         $coordinates = explode(" ", $input);
+        if ($coordinates[0] <= 0 || $coordinates[1] <= 0) {
+            throw new \BadMethodCallException('Plateau coordinates must be more than 1x1 or more');
+        }
         $this->x = $coordinates[0];
         $this->y = $coordinates[1];
     }
@@ -19,4 +23,5 @@ class Plateau {
     public function getPlateau() {
         return [$this->x, $this->y];
     }
+
 }

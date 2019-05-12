@@ -17,8 +17,7 @@ class Factory {
     }
 
     public function createRover($input) {
-        $coordinates = explode(" ", $input);
-        return new Rover($coordinates[0], $coordinates[1], $coordinates[2]);
+        return new Rover($input);
     }
 
     public function createMovement($rover, $plateau, $input) {

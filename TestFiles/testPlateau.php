@@ -1,9 +1,16 @@
 <?php
-require_once'..\plateau.php';
+
 namespace MarsRover\Test;
+
+require_once'..\plateau.php';
+
 use MarsRover\Plateau;
 
 class PlateauTest extends \PHPUnit_Framework_TestCase {
+
+    protected function tearDown() {
+        unset($this->Plateau);
+    }
 
     public function testSetPlateau() {
         $input = "5 5";
@@ -12,6 +19,14 @@ class PlateauTest extends \PHPUnit_Framework_TestCase {
         $this->Plateau->setPlateau($newInput);
         $output = $this->Plateau->getPlateau();
         $this->assertEquals([2, 2], $output, "The dimensions of the plateau should be 2x2");
+    }
+
+    public function testSetPlateauException() {
+        $input = "2 2";
+        $this->Plateau = new Plateau($input);
+        $this->setExpectedException('BadMethodCallException');
+        $newInput = "0 2";
+        $this->Plateau->setPlateau($newInput);
     }
 
     public function testGetPlateau() {
@@ -36,10 +51,6 @@ class PlateauTest extends \PHPUnit_Framework_TestCase {
             ["4 4", [4, 4]],
             ["6 10", [6, 10]],
         ];
-    }
-
-    protected function tearDown() {
-        unset($this->Plateau);
     }
 
 }
