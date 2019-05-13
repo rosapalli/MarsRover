@@ -1,4 +1,6 @@
 <?php
+namespace Classes;
+
 class Rover {
 
     private $xPosition;

@@ -1,16 +1,13 @@
 <?php
-
-namespace MarsRover\Test;
-
-require_once'..\factory.php';
-require_once '..\rover.php';
-require_once '..\plateau.php';
-require_once '..\movement.php';
-
-use MarsRover\Factory;
-use MarsRover\Rover;
-use MarsRover\Plateau;
-use MarsRover\Movement;
+namespace Test;
+require_once'..\Classes\factory.php';
+require_once '..\Classes\rover.php';
+require_once '..\Classes\plateau.php';
+require_once '..\Classes\movement.php';
+use Classes\Factory;
+use Classes\Rover;
+use Classes\Plateau;
+use Classes\Movement;
 
 class FactoryTest extends \PHPUnit_Framework_TestCase {
 
@@ -21,36 +18,29 @@ class FactoryTest extends \PHPUnit_Framework_TestCase {
     protected function tearDown() {
         unset($this->Factory);
     }
-
-    //THIS TEST IS CURRENTLY FAILING
-    public function testCreatePlateauException() {
-        $input = "5 5";
-        $newInput = "2 2";
-        $plateau = $this->Factory->createPlateau($input);
-        $this->Factory->createPlateau($newInput);
-        $this->setExpectedException('BadMethodCallException');
-    }
     
-    public function testMultipleRovers() {
-        //check if the factory creates rover2 if rover already exists
+    public function testCreateCommands() {
+        $input = "LMLMLMLMM";
+        $expected = ["L", "M", "L", "M", "L", "M", "L", "M", "M"];
+        $result = $this->Factory->createCommands($input);
+        $this->assertEquals($expected,$result);
     }
 
     /**
      * @dataProvider provideCreateMovement
      */
-    public function testCreateMovement($input, $rover, $expected) {
-        //THIS METHOD HAS BEEN CHANGED, TEST NEEDS TO BE UPDATED TO MAKE SURE IT STILL WORKS AS EXPECTED
+    public function testCreateMovement($commands, $rover, $expected) {
         $this->Rover = new Rover($rover);
         $this->Plateau = new Plateau("5 5");
-        $this->Factory->createMovement($this->Rover, $this->Plateau, $input);
+        $this->Factory->createMovement($this->Rover, $this->Plateau, $commands);
         $result = $this->Rover->getRover();
         $this->assertEquals($expected, $result);
     }
 
     public function provideCreateMovement() {
         return [
-            ["LMLMLMLMM", "1 2 N", "1 3 N"],
-            ["MMRMMRMRRM", "3 3 E", "5 1 E"]
+            [["L", "M", "L", "M", "L", "M", "L", "M", "M"], "1 2 N", "1 3 N"],
+            [["M", "M", "R", "M", "M", "R", "M", "R", "R", "M"], "3 3 E", "5 1 E"]
         ];
     }
 

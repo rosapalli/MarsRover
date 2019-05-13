@@ -1,10 +1,7 @@
 <?php
-
-namespace MarsRover\Test;
-
-require_once'..\plateau.php';
-
-use MarsRover\Plateau;
+namespace Test;
+require_once'..\Classes\plateau.php';
+use Classes\Plateau;
 
 class PlateauTest extends \PHPUnit_Framework_TestCase {
 
