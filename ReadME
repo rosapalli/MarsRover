@@ -20,7 +20,6 @@ The index file reads the input provided through a text file and calls the releva
 Assumptions
 - More than one rover can pass through the same coordinates at one given time
 - Several movement instructions can be processed in one go
-- Input is always passed in the correct format 
 
 Getting Started
 Download and extract MarsRover.zip
