@@ -1,11 +1,11 @@
 <?php
-namespace MarsRover\Test;
-require_once '..\movement.php';
-require_once '..\rover.php';
-require_once '..\plateau.php';
-use MarsRover\Movement;
-use MarsRover\Rover;
-use MarsRover\Plateau;
+namespace Test;
+require_once '..\Classes\movement.php';
+require_once '..\Classes\rover.php';
+require_once '..\Classes\plateau.php';
+use Classes\Movement;
+use Classes\Rover;
+use Classes\Plateau;
 
 class MovementTest extends \PHPUnit_Framework_TestCase {
 
@@ -66,10 +66,12 @@ class MovementTest extends \PHPUnit_Framework_TestCase {
 
     public function provideMoveForward() {
         return [
-            ["5 5 N", "5 5 N"],
-            ["4 4 S", "4 3 S"],
-            ["4 2 W", "3 2 W"],
-            ["3 3 E", "4 3 E"]
+            ["1 2 W", "0 2 W"],
+            ["0 2 S", "0 1 S"],
+            ["0 1 E", "1 1 E"],
+            ["1 1 N", "1 2 N"],
+            ["1 2 N", "1 3 N"],
         ];
     }
+
 }

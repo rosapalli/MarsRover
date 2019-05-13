@@ -1,4 +1,5 @@
 <?php
+namespace Classes;
 
 class Factory {
 
@@ -32,7 +33,7 @@ class Factory {
             } else if ($command === "R") {
                 $movement = new Movement();
                 $movement->turnRight($rover);
-            } else {
+            } else if($command === "M") {
                 $movement = new Movement();
                 $movement->moveForward($rover, $plateau);
             }

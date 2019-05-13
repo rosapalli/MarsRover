@@ -1,7 +1,7 @@
 <?php
-namespace MarsRover\Test;
-require_once'..\rover.php';
-use MarsRover\Rover;
+namespace Test;
+require_once'..\Classes\rover.php';
+use Classes\Rover;
 
 class RoverTest extends \PHPUnit_Framework_TestCase {
 
